@@ -1,20 +1,27 @@
 import React from "react";
+import {connect} from "react-redux";
 
-export default class SearchBox extends React.Component{
+import {searchText, startFetching} from "../Store/ActionCreators.js";
+
+const mapStateToProps = (state) => {
+    return {
+        isFetching: state.isFetching,
+        searchTerm: state.searchTerm
+    }
+}
+
+class SearchBox extends React.Component{
     constructor(props){
         super(props);
-
-        this.state={
-            value:null
-        };
 
         this.handleSearchText = this.handleSearchText.bind(this);
     }
 
     handleSearchText(event){
-        this.setState({
-            value: event.target.value
-        })
+        this.props.dispatch((dispatch)=>{
+            dispatch(startFetching());
+            dispatch(searchText(event.target.value));
+        });
     }
     
     render(){
@@ -22,8 +29,9 @@ export default class SearchBox extends React.Component{
             <div>
                 <label>Enter a search term</label>
                 <input type="text" onChange={this.handleSearchText}/>
-                <h2>{this.state.value}</h2>
             </div>
         );
     }
 }
+
+export default connect(mapStateToProps)(SearchBox)
