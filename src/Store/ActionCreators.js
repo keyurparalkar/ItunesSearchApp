@@ -14,10 +14,9 @@ export const startFetching = () => {
     }
 }
 
-export const recieveData = (data, searchTerm)=> {
+export const recieveData = (data)=> {
     return {
         type:RECIEVED_DATA,
-        data:data,
-        searchTerm: searchTerm
+        data:data
     }
 }

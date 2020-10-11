@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 
-import {searchText} from "../Store/ActionCreators.js";
+import {searchText, startFetching} from "../Store/ActionCreators.js";
 
 const mapStateToProps = (state) => {
     return {
@@ -18,7 +18,10 @@ class SearchBox extends React.Component{
     }
 
     handleSearchText(event){
-        this.props.dispatch(searchText(event.target.value));
+        this.props.dispatch((dispatch)=>{
+            dispatch(startFetching());
+            dispatch(searchText(event.target.value));
+        });
     }
     
     render(){
