@@ -3,6 +3,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 
 import { recieveData } from "../Store/ActionCreators.js";
+import Tile from "./Tile.js"
 
 const mapStateToProps = (state) => {
     return {
@@ -28,7 +29,7 @@ class TileContainer extends React.Component {
     }
 
     render() {
-        const result_list = this.props.results.map((val, index) => <li key={index}>{val.kind}</li>);
+        const result_list = this.props.results.map((val, index) => <Tile key={index} data={val}/>);
 
         if (this.props.isFetching) {
             return <div><h1>Loading.......</h1></div>
