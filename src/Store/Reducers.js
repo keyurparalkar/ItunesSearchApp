@@ -1,4 +1,4 @@
-import {startFetching, recieveData, START_FETCHING, RECIEVED_DATA} from "./ActionCreators.js";
+import {START_FETCHING, RECIEVED_DATA, SET_SEARCHTEXT} from "./ActionCreators.js";
 
 const reducer = (state, action) => {
     switch(action.type){
@@ -6,7 +6,8 @@ const reducer = (state, action) => {
             return {...state, isFetching:true};
         case RECIEVED_DATA:
             return {...state, isFetching:false, data:action.data, searchTerm: action.searchTerm}
-
+        case SET_SEARCHTEXT:
+            return {...state, searchTerm: action.searchTerm}
         default:
             return state;
     }

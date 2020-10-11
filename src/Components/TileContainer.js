@@ -1,4 +1,12 @@
 import React from "react";
+import {connect} from "react-redux";
+
+const mapStateToProps = (state) => {
+    return {
+        isFetching: state.isFetching,
+        results: state.results
+    }
+}
 
 const TileContainer = ()=> (
     <div className="title-container">
@@ -13,4 +21,4 @@ const TileContainer = ()=> (
       </div>
 );
 
-export default TileContainer;
+export default connect(mapStateToProps)(TileContainer);
