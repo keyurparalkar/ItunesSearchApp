@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import { recieveData } from "../Store/ActionCreators.js";
 import Tile from "./Tile.js"
+import {ListStyledContainer} from "./StyledComponents.js";
 
 const mapStateToProps = (state) => {
     return {
@@ -35,8 +36,7 @@ class TileContainer extends React.Component {
             return <div><h1>Loading.......</h1></div>
         } else {
             return (
-                <div className="title-container">
-                    <ul>
+                    <ListStyledContainer>
                         {/* <li key="1">Song 1</li>
                         <li key="2">Song 2</li>
                         <li key="3">Song 3</li>
@@ -44,8 +44,8 @@ class TileContainer extends React.Component {
                         <li key="5">Song 5</li>
                         <li key="6">Song 6</li> */}
                         {result_list}
-                    </ul>
-                </div>
+                    </ListStyledContainer>
+                
             );
         }
     }
