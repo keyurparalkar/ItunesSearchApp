@@ -1,16 +1,35 @@
 import React from "react";
+import {connect} from "react-redux";
+
 import {FilterInput} from "./FilterInput.js";
+import {setFilterOption} from "../Store/ActionCreators.js";
+
+const mapStateToProps = (state) => {
+    return{
+        filter: state.filter
+    }
+}
 
 class Filters extends React.Component{
+    constructor(props){
+        super(props);
+
+        this.handleFilter = this.handleFilter.bind(this);
+    }
+
+    handleFilter(event){
+        this.props.dispatch(setFilterOption(event.target.value));
+    }
+
     render(){
         return(
             <div style={{display:"flex", flexDirection:"row"}}>
-                <FilterInput name="audiobook"/>
-                <FilterInput name="song"/>
-                <FilterInput name="feature-movie"/>
+                <FilterInput name="audiobook" onChange={this.handleFilter}/>
+                <FilterInput name="song" onChange={this.handleFilter}/>
+                <FilterInput name="feature-movie" onChange={this.handleFilter}/>
             </div>
         );
     }
 }
 
-export default Filters;
+export default connect(mapStateToProps)(Filters);

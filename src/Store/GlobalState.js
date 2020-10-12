@@ -1,8 +1,10 @@
 const appState = {
     isFetching: false,
-    fetche:false,
+    fetched:false,
     searchTerm: null,
-    results:[]
+    filter:null,
+    results:[],
+    filteredResults:[]
 }
 
 export default appState;

@@ -1,4 +1,9 @@
-import {START_FETCHING, RECIEVED_DATA, SET_SEARCHTEXT} from "./ActionCreators.js";
+import {
+    START_FETCHING, 
+    RECIEVED_DATA, 
+    SET_SEARCHTEXT,
+    SET_FILTER,
+    FILTER_DATA} from "./ActionCreators.js";
 
 const reducer = (state, action) => {
     switch(action.type){
@@ -8,6 +13,10 @@ const reducer = (state, action) => {
             return {...state, results:action.data, isFetching:false, fetched:false}
         case SET_SEARCHTEXT:
             return {...state, searchTerm: action.searchTerm}
+        case SET_FILTER:
+            return {...state, filter:action.filter}
+        case FILTER_DATA:
+            return {...state, filteredResults:action.data}
         default:
             return state;
     }

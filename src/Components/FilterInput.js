@@ -4,6 +4,6 @@ import {StyledFilterInput} from "./StyledComponents.js";
 export const FilterInput = (props) => (
     <StyledFilterInput>
         <label>{props.name}</label>
-        <input type="checkbox" value={props.name}/>
+        <input type="checkbox" value={props.name} onChange={props.onChange}/>
     </StyledFilterInput>
 )
