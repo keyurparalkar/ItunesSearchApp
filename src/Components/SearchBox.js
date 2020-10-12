@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 
 import {searchText, startFetching} from "../Store/ActionCreators.js";
+import {StyledSearchBox} from "./StyledComponents.js";
 
 const mapStateToProps = (state) => {
     return {
@@ -26,10 +27,10 @@ class SearchBox extends React.Component{
     
     render(){
         return (
-            <div>
+            <StyledSearchBox>
                 <label>Enter a search term</label>
                 <input type="text" onChange={this.handleSearchText}/>
-            </div>
+            </StyledSearchBox>
         );
     }
 }
