@@ -28,11 +28,12 @@ class Filters extends React.Component {
     }
 
     render() {
+        const toggle = this.props.results.length > 0 ? false : true ;
         return (
             <div style={{ display: "flex", flexDirection: "row" }}>
-                <FilterInput name="audiobook" onChange={this.handleFilter} />
-                <FilterInput name="song" onChange={this.handleFilter} />
-                <FilterInput name="feature-movie" onChange={this.handleFilter} />
+                <FilterInput name="audiobook" onChange={this.handleFilter} disabled={toggle}/>
+                <FilterInput name="song" onChange={this.handleFilter} disabled={toggle}/>
+                <FilterInput name="feature-movie" onChange={this.handleFilter} disabled={toggle}/>
             </div>
         );
     }
