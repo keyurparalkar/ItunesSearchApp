@@ -11,6 +11,7 @@ const mapStateToProps = (state) => {
         isFetching: state.isFetching,
         fetched:state.fetched,
         results: state.results,
+        filter: state.filter,
         searchTerm: state.searchTerm
     }
 }
@@ -30,11 +31,27 @@ class TileContainer extends React.Component {
     }
 
     render() {
-        const result_list = this.props.results.map((val, index) => <Tile key={index} data={val}/>);
+        let result_list;
+        if(this.props.filter.length > 0){
+            const filteredList = this.props.results.filter((val) => {
+                if(val.wrapperType==="audiobook" && this.props.filter.includes("audiobook")){
+                    return true;
+                } else if(this.props.filter.includes(val.kind)){
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+             result_list = filteredList.map((val, index) => <Tile key={index} data={val}/>);
+        } else{
+             result_list = this.props.results.map((val, index) => <Tile key={index} data={val}/>);
+        }
+        
 
         if (this.props.isFetching) {
             return <div><h1>Loading.......</h1></div>
         } else {
+            console.log(`Filtered List size = ${result_list.length}`)
             return (
                     <ListStyledContainer>
                         {result_list}
