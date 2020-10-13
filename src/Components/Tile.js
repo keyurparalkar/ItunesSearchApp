@@ -1,12 +1,12 @@
 import React from "react";
-import { StyledCard } from "./StyledComponents.js";
+import { StyledCard, StyledImage} from "./StyledComponents.js";
 
 const Tile = (props) => {
     const songDetails = props.data;
     return (
         <StyledCard>
             <span>
-                <img alt={songDetails.trackName} src={songDetails.artworkUrl100} width={150} height={150}/>    
+                <StyledImage alt={songDetails.trackName} src={songDetails.artworkUrl100} width={150} height={150}/>    
             </span>
             <span>{songDetails.trackName ? songDetails.trackName : songDetails.collectionCensoredName}</span>
             <span>{(() => {
