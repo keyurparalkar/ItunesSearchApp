@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { recieveData } from "../Store/ActionCreators.js";
 import Tile from "./Tile.js"
-import { ListStyledContainer } from "./StyledComponents.js";
+import { ListStyledContainer, StyledLoader } from "./StyledComponents.js";
 
 const mapStateToProps = (state) => {
     return {
@@ -50,7 +50,7 @@ class TileContainer extends React.Component {
 
 
         if (this.props.isFetching) {
-            return <div><h1>Loading.......</h1></div>
+            return <StyledLoader/>
         } else {
             return (
                 <ListStyledContainer>
