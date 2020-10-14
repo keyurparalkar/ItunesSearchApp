@@ -1,5 +1,28 @@
 import styled, {keyframes} from "styled-components";
 
+// Animations:
+
+const spin = keyframes`
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+`;
+
+const fadeIn = keyframes`
+    0%{ 
+        opacity:0;
+    }
+    50%{
+        opacity:0.5;
+    }
+    100%{
+        opacity:1;
+    }
+`;
+
 export const AppContainer = styled.div`
     display:flex;
     flex-direction: column;
@@ -40,11 +63,7 @@ export const StyledCard = styled.li`
 
     font-family: 'Noto Sans JP', sans-serif;
 
-    // &:nth-child(1){
-    //     font-size:18px;
-    //     font-weight:bold;
-    // }
-
+    animation: ${fadeIn} ${props => props.animationDelay/5}s ease-out;
 `;
 
 export const StyledImage = styled.img`
@@ -58,16 +77,8 @@ export const StyledFilterInput = styled.div`
     justify-content:center;
 `;
 
-// Animations:
 
-const spin = keyframes`
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
-`;
+
 export const StyledLoader = styled.div`
     border: 16px solid #f3f3f3; 
     border-top: 16px solid #3498db;

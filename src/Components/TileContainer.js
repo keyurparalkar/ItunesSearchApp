@@ -41,11 +41,11 @@ class TileContainer extends React.Component {
                 return false;
             }
         });
-        result_list = filteredList.map((val, index) => <Tile key={index} data={val} />);
+        result_list = filteredList.map((val, index) =><Tile key={index} data={val} animationDelay={`${index}`}/>);
 
 
         if (filteredList.length === 0) {
-            result_list = this.props.results.map((val, index) => <Tile key={index} data={val} />);
+            result_list = this.props.results.map((val, index) => <Tile key={index} data={val} animationDelay={`${index}`}/>);
         }
 
 

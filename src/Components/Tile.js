@@ -6,8 +6,11 @@ const Tile = (props) => {
     const imgUrlStrip = songDetails.artworkUrl100.split('/');
     const imgSize = imgUrlStrip.pop();
     const highRezImgUrl = [...imgUrlStrip, `640x480bb${imgSize.split('bb')[1]}`].join('/');
+
+    console.log('DElay = ',props.animationDelay)
     return (
-        <StyledCard>
+        
+        <StyledCard animationDelay = {props.animationDelay}>
             <span>
                 <StyledImage alt={songDetails.trackName} src={highRezImgUrl} width={150} height={150}/>    
             </span>
