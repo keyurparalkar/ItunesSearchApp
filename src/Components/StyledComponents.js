@@ -62,13 +62,25 @@ export const StyledCard = styled.li`
     height:250px;
 
     font-family: 'Noto Sans JP', sans-serif;
+    & span:nth-child(2){
+        font-size:18px;
+        font-weight:bold;
+    }
+    & span:nth-child(3){
+        font-size:15px;
+        font-weight:lighter;
+    }
+    & span:nth-child(4){
+        font-size:11px;
+        font-weight:lighter;
+    }
 
     animation: ${fadeIn} ${props => props.animationDelay/5}s ease-out;
 `;
 
 export const StyledImage = styled.img`
     border-radius: 10px;
-    filter: drop-shadow(1px 10px 10px rgba(0,0,0,0.2));
+    filter: drop-shadow(1px 12px 10px rgba(0,0,0,0.2));
 `;
 
 export const StyledFilterInput = styled.div`

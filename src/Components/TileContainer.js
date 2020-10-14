@@ -22,7 +22,7 @@ class TileContainer extends React.Component {
         if (this.props.fetched) {
             //Async operations:
             this.props.dispatch((dispatch) => {
-                axios.get(`https://itunes.apple.com/search?term=${this.props.searchTerm}`)
+                axios.get(`https://itunes.apple.com/search?term=${encodeURI(this.props.searchTerm)}`)
                     .then((resp) => {
                         dispatch(recieveData(resp.data.results));
                     })
