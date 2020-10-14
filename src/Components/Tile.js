@@ -3,10 +3,13 @@ import { StyledCard, StyledImage} from "./StyledComponents.js";
 
 const Tile = (props) => {
     const songDetails = props.data;
+    const imgUrlStrip = songDetails.artworkUrl100.split('/');
+    const imgSize = imgUrlStrip.pop();
+    const highRezImgUrl = [...imgUrlStrip, `640x480bb${imgSize.split('bb')[1]}`].join('/');
     return (
         <StyledCard>
             <span>
-                <StyledImage alt={songDetails.trackName} src={songDetails.artworkUrl100} width={150} height={150}/>    
+                <StyledImage alt={songDetails.trackName} src={highRezImgUrl} width={150} height={150}/>    
             </span>
             <span>{songDetails.trackName ? songDetails.trackName : songDetails.collectionCensoredName}</span>
             <span>{(() => {
