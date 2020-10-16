@@ -40,14 +40,14 @@ export const StyledSearchBox = styled.div`
 
 export const ListStyledContainer = styled.ul`
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
 `;
 
 export const StyledCard = styled.li`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 
@@ -58,21 +58,35 @@ export const StyledCard = styled.li`
     // box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
     margin: 10px;
 
-    width:250px;
+    width:600px;
     height:250px;
 
     font-family: 'Noto Sans JP', sans-serif;
-    & span:nth-child(2){
+
+    & .card-details{
+        display:flex;
+        flex-direction:column;
+        width:400px;
+        padding:20px;
+    }
+    & .card-details span:nth-child(1){
         font-size:18px;
         font-weight:bold;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
     }
-    & span:nth-child(3){
+    & .card-details span:nth-child(2){
         font-size:15px;
         font-weight:lighter;
+        overflow:hidden;
+        text-overflow:ellipsis;
     }
-    & span:nth-child(4){
+    & .card-details span:nth-child(3){
         font-size:11px;
         font-weight:lighter;
+        overflow:hidden;
+        text-overflow:ellipsis;
     }
 
     animation: ${fadeIn} ${props => props.animationDelay/5}s ease-out;

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledCard, StyledImage} from "./StyledComponents.js";
+import { StyledCard, StyledImage } from "./StyledComponents.js";
 
 const Tile = (props) => {
     const songDetails = props.data;
@@ -7,22 +7,24 @@ const Tile = (props) => {
     const imgSize = imgUrlStrip.pop();
     const highRezImgUrl = [...imgUrlStrip, `640x480bb${imgSize.split('bb')[1]}`].join('/');
 
-    console.log('DElay = ',props.animationDelay)
     return (
-        
-        <StyledCard animationDelay = {props.animationDelay}>
+
+        <StyledCard animationDelay={props.animationDelay}>
             <span>
-                <StyledImage alt={songDetails.trackName} src={highRezImgUrl} width={150} height={150}/>    
+                <StyledImage alt={songDetails.trackName} src={highRezImgUrl} width={150} height={150} />
             </span>
-            <span>{songDetails.trackName ? songDetails.trackName : songDetails.collectionCensoredName}</span>
-            <span>{(() => {
-                if (songDetails.wrapperType === "track") {
-                    return songDetails.kind;
-                } else if (songDetails.wrapperType === "audiobook") {
-                    return songDetails.wrapperType;
-                }
-            })()}</span>
-            <span>{songDetails.artistName}</span>
+            <div className="card-details">
+                <span>{songDetails.trackName ? songDetails.trackName : songDetails.collectionCensoredName}</span>
+                <span>{(() => {
+                    if (songDetails.wrapperType === "track") {
+                        return songDetails.kind;
+                    } else if (songDetails.wrapperType === "audiobook") {
+                        return songDetails.wrapperType;
+                    }
+                })()}</span>
+                <span>{songDetails.artistName}</span>
+            </div>
+
 
             {/* <span>{(() => {
                 if (songDetails.wrapperType === "track") {
