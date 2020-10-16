@@ -1,4 +1,27 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
+
+// Animations:
+
+const spin = keyframes`
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+`;
+
+const fadeIn = keyframes`
+    0%{ 
+        opacity:0;
+    }
+    50%{
+        opacity:0.5;
+    }
+    100%{
+        opacity:1;
+    }
+`;
 
 export const AppContainer = styled.div`
     display:flex;
@@ -8,18 +31,85 @@ export const AppContainer = styled.div`
     width:100%;
 `;
 
+export const StyledSearchBox = styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+`;
+
 export const ListStyledContainer = styled.ul`
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
     flex-wrap: wrap;
 `;
 
 export const StyledCard = styled.li`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    padding: 10px;
+    align-items: center;
 
-    border: 1px solid rgba(0,0,0,0.5);
+    padding: 2px;
+
+    // border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 20px;
+    // box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
+    margin: 10px;
+
+    width:600px;
+    height:250px;
+
+    font-family: 'Noto Sans JP', sans-serif;
+
+    & .card-details{
+        display:flex;
+        flex-direction:column;
+        width:400px;
+        padding:20px;
+    }
+    & .card-details span:nth-child(1){
+        font-size:18px;
+        font-weight:bold;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+    }
+    & .card-details span:nth-child(2){
+        font-size:15px;
+        font-weight:lighter;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+    & .card-details span:nth-child(3){
+        font-size:11px;
+        font-weight:lighter;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+
+    animation: ${fadeIn} ${props => props.animationDelay/5}s ease-out;
 `;
 
+export const StyledImage = styled.img`
+    border-radius: 10px;
+    filter: drop-shadow(1px 12px 10px rgba(0,0,0,0.2));
+`;
+
+export const StyledFilterInput = styled.div`
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content:center;
+`;
+
+
+
+export const StyledLoader = styled.div`
+    border: 16px solid #f3f3f3; 
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: ${spin} 2s linear infinite;
+`;

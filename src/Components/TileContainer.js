@@ -4,13 +4,14 @@ import { connect } from "react-redux";
 
 import { recieveData } from "../Store/ActionCreators.js";
 import Tile from "./Tile.js"
-import {ListStyledContainer} from "./StyledComponents.js";
+import { ListStyledContainer, StyledLoader } from "./StyledComponents.js";
 
 const mapStateToProps = (state) => {
     return {
         isFetching: state.isFetching,
-        fetched:state.fetched,
+        fetched: state.fetched,
         results: state.results,
+        filter: state.filter,
         searchTerm: state.searchTerm
     }
 }
@@ -18,34 +19,44 @@ const mapStateToProps = (state) => {
 class TileContainer extends React.Component {
 
     componentDidUpdate() {
-        if(this.props.fetched){
-        //Async operations:
-        this.props.dispatch((dispatch) => {
-            axios.get(`https://itunes.apple.com/search?term=${this.props.searchTerm}`)
-                .then((resp) => {
-                    dispatch(recieveData(resp.data.results));
-                })
-        });
-    }
+        if (this.props.fetched) {
+            //Async operations:
+            this.props.dispatch((dispatch) => {
+                axios.get(`https://itunes.apple.com/search?term=${encodeURI(this.props.searchTerm)}`)
+                    .then((resp) => {
+                        dispatch(recieveData(resp.data.results));
+                    })
+            });
+        }
     }
 
     render() {
-        const result_list = this.props.results.map((val, index) => <Tile key={index} data={val}/>);
+        let result_list;
+        let filteredList = this.props.results.filter((val) => {
+            if (val.wrapperType === "audiobook" && this.props.filter.includes("audiobook")) {
+                return true;
+            } else if (this.props.filter.includes(val.kind)) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        result_list = filteredList.map((val, index) =><Tile key={index} data={val} animationDelay={`${index}`}/>);
+
+
+        if (filteredList.length === 0) {
+            result_list = this.props.results.map((val, index) => <Tile key={index} data={val} animationDelay={`${index}`}/>);
+        }
+
 
         if (this.props.isFetching) {
-            return <div><h1>Loading.......</h1></div>
+            return <StyledLoader/>
         } else {
             return (
-                    <ListStyledContainer>
-                        {/* <li key="1">Song 1</li>
-                        <li key="2">Song 2</li>
-                        <li key="3">Song 3</li>
-                        <li key="4">Song 4</li>
-                        <li key="5">Song 5</li>
-                        <li key="6">Song 6</li> */}
-                        {result_list}
-                    </ListStyledContainer>
-                
+                <ListStyledContainer>
+                    {result_list}
+                </ListStyledContainer>
+
             );
         }
     }
