@@ -1,4 +1,4 @@
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 // Animations:
 
@@ -40,56 +40,52 @@ export const StyledSearchBox = styled.div`
 
 export const ListStyledContainer = styled.ul`
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
 `;
 
 export const StyledCard = styled.li`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    
     padding: 2px;
 
     // border: 1px solid rgba(0,0,0,0.5);
     border-radius: 20px;
-    // box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
     margin: 10px;
 
-    width:600px;
+    width:300px;
     height:250px;
 
     font-family: 'Noto Sans JP', sans-serif;
 
-    & .card-details{
-        display:flex;
-        flex-direction:column;
-        width:400px;
-        padding:20px;
+    & span:nth-child(1) button{
+        background:transparent;
+        border:0px;
     }
-    & .card-details span:nth-child(1){
-        font-size:18px;
-        font-weight:bold;
-        overflow:hidden;
-        text-overflow:ellipsis;
-        white-space:nowrap;
-    }
-    & .card-details span:nth-child(2){
+   
+    &  span:nth-child(2){
         font-size:15px;
+        margin-top:14px;
+    }
+
+    & div span:nth-child(1){
+        font-size:10px;
         font-weight:lighter;
         overflow:hidden;
         text-overflow:ellipsis;
     }
-    & .card-details span:nth-child(3){
-        font-size:11px;
+    & div span:nth-child(2){
+        font-size:10px;
         font-weight:lighter;
         overflow:hidden;
         text-overflow:ellipsis;
     }
 
-    animation: ${fadeIn} ${props => props.animationDelay/5}s ease-out;
+    animation: ${fadeIn} ${props => props.animationDelay / 5}s ease-out;
 `;
 
 export const StyledImage = styled.img`
@@ -112,4 +108,51 @@ export const StyledLoader = styled.div`
     width: 120px;
     height: 120px;
     animation: ${spin} 2s linear infinite;
+`;
+
+
+export const StyledModal = styled.div`
+    & .main-model {
+        display:flex;
+        flex-direction:row;
+        justify-content:space-around;
+        position:fixed;
+        background: white;
+        width: 80%;
+        height: auto;
+        min-height:400px;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+    }
+    &.modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width:100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index:500;
+        overflow:hidden;
+      }
+    &.display-block {
+        display: block;
+      }
+    
+    &.display-none{
+        display:none;
+    }
+
+    & .closeButton {
+        position: absolute;
+        left: 95%;
+    }
+`;
+
+export const StyledDescription = styled.div`
+    display: block;
+    overflow: ${props => props.overflow};
+    text-overflow: ellipsis;
+    width: 500px;
+    max-height: 250px;
 `;
