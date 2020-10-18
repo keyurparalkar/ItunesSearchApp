@@ -62,6 +62,10 @@ export const StyledCard = styled.li`
 
     font-family: 'Noto Sans JP', sans-serif;
 
+    & span:nth-child(1) button{
+        background:transparent;
+        border:0px;
+    }
    
     &  span:nth-child(2){
         font-size:15px;
