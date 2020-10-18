@@ -143,12 +143,12 @@ export const StyledModal = styled.div`
         position: absolute;
         left: 95%;
     }
+`;
 
-    & .main-model div.modal-description .desp-text  {
-        display: block;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        height: 100px;
-        width: 500px;
-    }
+export const StyledDescription = styled.div`
+    display: block;
+    overflow: ${props => props.overflow};
+    text-overflow: ellipsis;
+    width: 500px;
+    max-height: 250px;
 `;

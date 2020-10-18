@@ -13,6 +13,7 @@ class Tile extends React.Component {
 
         this.showModal = this.showModal.bind(this);
         this.hideModal = this.hideModal.bind(this);
+
     }
 
     showModal() {
@@ -43,12 +44,15 @@ class Tile extends React.Component {
         })();
         const parser = new DOMParser();
         let contentDescription = null;
-        if(songDetails.hasOwnProperty('description')) {
+        if (songDetails.hasOwnProperty('description')) {
             contentDescription = parser.parseFromString(songDetails.description, 'text/html').body.innerText;
-        } else{
-            contentDescription =  'No Description Found';
+
+        } else {
+            contentDescription = 'No Description Found';
         }
-            
+
+
+
         return (
             <StyledCard animationDelay={this.props.animationDelay}>
                 <span>
@@ -63,17 +67,14 @@ class Tile extends React.Component {
                     <button onClick={this.showModal}>Show modal</button>
                 </div>
 
-                <Modal closeModal={this.hideModal} show={this.state.toggleModal}>
+                <Modal closeModal={this.hideModal}
+                    show={this.state.toggleModal}
+                    trackName={trackName}
+                    artistName={artistName}
+                    songType={songType}
+                    contentDescription={contentDescription}>
                     <div className="modal-image">
                         <StyledImage alt={trackName} src={highRezImgUrl} width={200} height={300} />
-                    </div>
-
-                    <div className="modal-description">
-                        <h1>{trackName}</h1>
-                        <h3>{artistName}</h3>
-
-                        <span> ({songType})</span>
-                        <span className="desp-text"> {contentDescription} </span>
                     </div>
 
                 </Modal>
