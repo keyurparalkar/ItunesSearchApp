@@ -1,4 +1,4 @@
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 // Animations:
 
@@ -81,7 +81,7 @@ export const StyledCard = styled.li`
         text-overflow:ellipsis;
     }
 
-    animation: ${fadeIn} ${props => props.animationDelay/5}s ease-out;
+    animation: ${fadeIn} ${props => props.animationDelay / 5}s ease-out;
 `;
 
 export const StyledImage = styled.img`
@@ -109,10 +109,14 @@ export const StyledLoader = styled.div`
 
 export const StyledModal = styled.div`
     & .main-model {
+        display:flex;
+        flex-direction:row;
+        justify-content:space-around;
         position:fixed;
         background: white;
         width: 80%;
         height: auto;
+        min-height:400px;
         top:50%;
         left:50%;
         transform: translate(-50%,-50%);
@@ -124,6 +128,8 @@ export const StyledModal = styled.div`
         width:100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.6);
+        z-index:500;
+        overflow:hidden;
       }
     &.display-block {
         display: block;
@@ -131,5 +137,18 @@ export const StyledModal = styled.div`
     
     &.display-none{
         display:none;
+    }
+
+    & .closeButton {
+        position: absolute;
+        left: 95%;
+    }
+
+    & .main-model div.modal-description .desp-text  {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 100px;
+        width: 500px;
     }
 `;

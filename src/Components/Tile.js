@@ -15,15 +15,15 @@ class Tile extends React.Component {
         this.hideModal = this.hideModal.bind(this);
     }
 
-    showModal(){
+    showModal() {
         this.setState({
-            toggleModal:true
+            toggleModal: true
         })
     }
 
-    hideModal(){
+    hideModal() {
         this.setState({
-            toggleModal:false
+            toggleModal: false
         })
     }
 
@@ -32,30 +32,50 @@ class Tile extends React.Component {
         const imgUrlStrip = songDetails.artworkUrl100.split('/');
         const imgSize = imgUrlStrip.pop();
         const highRezImgUrl = [...imgUrlStrip, `640x480bb${imgSize.split('bb')[1]}`].join('/');
-
+        const trackName = songDetails.trackName ? songDetails.trackName : songDetails.collectionCensoredName;
+        const artistName = songDetails.artistName;
+        const songType = (() => {
+            if (songDetails.wrapperType === "track") {
+                return songDetails.kind;
+            } else if (songDetails.wrapperType === "audiobook") {
+                return songDetails.wrapperType;
+            }
+        })();
+        const parser = new DOMParser();
+        let contentDescription = null;
+        if(songDetails.hasOwnProperty('description')) {
+            contentDescription = parser.parseFromString(songDetails.description, 'text/html').body.innerText;
+        } else{
+            contentDescription =  'No Description Found';
+        }
+            
         return (
             <StyledCard animationDelay={this.props.animationDelay}>
                 <span>
-                    <StyledImage alt={songDetails.trackName} src={highRezImgUrl} width={150} height={150} />
+                    <StyledImage alt={trackName} src={highRezImgUrl} width={150} height={150} />
                 </span>
 
-                <span>{songDetails.trackName ? songDetails.trackName : songDetails.collectionCensoredName}</span>
+                <span>{trackName}</span>
                 <div>
-                    <span>{songDetails.artistName}</span>
+                    <span>{artistName}</span>
 
-                    <span> ({(() => {
-                        if (songDetails.wrapperType === "track") {
-                            return songDetails.kind;
-                        } else if (songDetails.wrapperType === "audiobook") {
-                            return songDetails.wrapperType;
-                        }
-                    })()})</span>
+                    <span> ({songType})</span>
                     <button onClick={this.showModal}>Show modal</button>
                 </div>
 
                 <Modal closeModal={this.hideModal} show={this.state.toggleModal}>
-                    <h1>Temp0 H1</h1>
-                    <h1>Temp1 H1</h1>
+                    <div className="modal-image">
+                        <StyledImage alt={trackName} src={highRezImgUrl} width={200} height={300} />
+                    </div>
+
+                    <div className="modal-description">
+                        <h1>{trackName}</h1>
+                        <h3>{artistName}</h3>
+
+                        <span> ({songType})</span>
+                        <span className="desp-text"> {contentDescription} </span>
+                    </div>
+
                 </Modal>
 
             </StyledCard>

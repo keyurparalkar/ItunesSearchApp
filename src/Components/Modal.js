@@ -7,7 +7,7 @@ export const Modal = (props) => {
         <StyledModal className={showHideClass}>
             <div className="main-model">
                 {props.children}
-                <button onClick={props.closeModal}>close</button>
+                <button className="closeButton" onClick={props.closeModal}>X</button>
             </div>
         </StyledModal>
     );
