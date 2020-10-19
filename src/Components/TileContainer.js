@@ -31,30 +31,47 @@ class TileContainer extends React.Component {
     }
 
     render() {
-        let result_list;
-        let filteredList = this.props.results.filter((val) => {
-            if (val.wrapperType === "audiobook" && this.props.filter.includes("audiobook")) {
-                return true;
-            } else if (this.props.filter.includes(val.kind)) {
-                return true;
-            } else {
-                return false;
-            }
-        });
-        result_list = filteredList.map((val, index) =><Tile key={index} data={val} animationDelay={`${index}`}/>);
+        // let filteredList = this.props.results.filter((val) => {
+        //     if (val.wrapperType === "audiobook" && this.props.filter.includes("audiobook")) {
+        //         return true;
+        //     } else if (this.props.filter.includes(val.kind)) {
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // });
 
-
-        if (filteredList.length === 0) {
-            result_list = this.props.results.map((val, index) => <Tile key={index} data={val} animationDelay={`${index}`}/>);
+        let filtered_arrays = [];
+        let data = this.props.results;
+        let uniqueFilters = [...new Set(data.map((val)=> val.hasOwnProperty('kind') ? val.kind : val.wrapperType))];
+        
+        for(let filt of uniqueFilters){
+            filtered_arrays.push(data.filter((val)=> val.hasOwnProperty('kind') ? val.kind===filt: val.wrapperType === filt));
         }
+        let result_arrays = filtered_arrays.map((val, ind)=>(
+            <>
+             <h1>Temp Header {val[0].kind ? val[0].kind : val[0].wrapperType} </h1>
+             {val.map((item, index)=>(
+                 <Tile key={index} data={item} animationDelay={`${index}`}/>
+            ))}
+            </>
+            
+        ));
+
+        // result_arrays = filteredList.map((val, index) =><Tile key={index} data={val} animationDelay={`${index}`}/>);
 
 
+        // if (filteredList.length === 0) {
+        //     result_list = this.props.results.map((val, index) => <Tile key={index} data={val} animationDelay={`${index}`}/>);
+        // }
+
+        // console.log(result_arrays);
         if (this.props.isFetching) {
             return <StyledLoader/>
         } else {
             return (
                 <ListStyledContainer>
-                    {result_list}
+                    {result_arrays}
                 </ListStyledContainer>
 
             );
