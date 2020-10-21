@@ -39,12 +39,36 @@ export const StyledSearchBox = styled.div`
 `;
 
 export const ListStyledContainer = styled.ul`
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+    // min-width: 80%;
+    // display:flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // flex-wrap: wrap;
 `;
 
+export const StyledCategoryContainer = styled.li`
+
+	display: grid;
+	grid-template-columns: 10px 1fr 10px;
+
+    
+    & {
+        h1 {
+            grid-column: 1 /-1;
+            text-align: center;
+        }
+
+        ul {
+            grid-column: 1 / -1;
+            display:grid;
+            grid-template-columns: repeat(30, 1fr);
+            grid-gap: 5px;
+            overflow-x:scroll;
+            overflow-y:hidden;
+
+        }
+    }
+`;
 export const StyledCard = styled.li`
     display: flex;
     flex-direction: column;
