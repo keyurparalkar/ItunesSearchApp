@@ -33,9 +33,44 @@ export const AppContainer = styled.div`
 
 export const StyledSearchBox = styled.div`
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items:center;
+    // align-items:center;
+    position: relative;
+    min-width:300px;
+
+    & {
+        .search-icon{
+            position: absolute;
+            top: 9px;
+            left: 10px;
+            width: 15px;
+        }
+
+        input {
+            border: 1px solid grey;
+            border-radius: 5px;
+            height: 28px;
+            width: 100%;
+            padding: 2px 23px 2px 30px;
+            outline: 0;
+            background-color: #f5f5f5;
+
+            &:hover, &:focus {
+                border: 1.5px solid #009688;
+                background-color: white;
+              }
+        }
+
+        .clear-icon{
+            position: absolute;
+            top: 8px;   
+            right: 10px;
+            width: 16px;
+            cursor: pointer;
+            visibility:${(props) => props.clearIconVisible ? 'visible': 'hidden'}
+        }
+    }
 `;
 
 export const ListStyledContainer = styled.ul`
