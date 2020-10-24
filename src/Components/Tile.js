@@ -61,12 +61,9 @@ class Tile extends React.Component {
                     </button>
                 </span>
 
-                <span>{trackName}</span>
                 <div>
+                    <span>{trackName}</span>
                     <span>{artistName}</span>
-
-                    <span> ({songType})</span>
-                    {/* <button onClick={this.showModal}>Show modal</button> */}
                 </div>
 
                 <Modal closeModal={this.hideModal}

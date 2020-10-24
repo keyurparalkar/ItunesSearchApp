@@ -82,7 +82,7 @@ export const StyledCard = styled.li`
     margin: 10px;
 
     width:300px;
-    height:250px;
+    height:350px;
 
     font-family: 'Noto Sans JP', sans-serif;
 
@@ -96,14 +96,22 @@ export const StyledCard = styled.li`
         margin-top:14px;
     }
 
+    & div {
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        width:250px;
+        margin-top: 10px;
+    }
     & div span:nth-child(1){
-        font-size:10px;
-        font-weight:lighter;
+        font-size:15px;
+        font-weight:bold;
         overflow:hidden;
         text-overflow:ellipsis;
     }
     & div span:nth-child(2){
-        font-size:10px;
+        font-size:12px;
+        margin-top:5px;
         font-weight:lighter;
         overflow:hidden;
         text-overflow:ellipsis;
@@ -113,7 +121,6 @@ export const StyledCard = styled.li`
 `;
 
 export const StyledImage = styled.img`
-    border-radius: 10px;
     filter: drop-shadow(1px 12px 10px rgba(0,0,0,0.2));
 `;
 
