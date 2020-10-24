@@ -1,7 +1,7 @@
 const appState = {
     isFetching: false,
     fetched:false,
-    searchTerm: null,
+    searchTerm: '',
     results:[]
 }
 
