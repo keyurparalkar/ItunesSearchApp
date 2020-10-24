@@ -37,36 +37,37 @@ export const StyledSearchBox = styled.div`
     justify-content: center;
     // align-items:center;
     position: relative;
-    min-width:300px;
-
+    min-width:500px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.06);
     & {
         .search-icon{
             position: absolute;
-            top: 9px;
-            left: 10px;
-            width: 15px;
+            top: 18px;
+            left: 14px;
+            width: 28px;
         }
 
         input {
-            border: 1px solid grey;
+            // border: 1px solid grey;
             border-radius: 5px;
-            height: 28px;
+            height: 60px;
             width: 100%;
-            padding: 2px 23px 2px 30px;
+            padding: 2px 23px 2px 60px;
             outline: 0;
-            background-color: #f5f5f5;
+            background-color: white;
+            font-size:25px;
 
             &:hover, &:focus {
-                border: 1.5px solid #009688;
-                background-color: white;
+                // border: 1.5px solid #009688;
+                // background-color: white;
               }
         }
 
         .clear-icon{
             position: absolute;
-            top: 8px;   
+            top: 24px;   
             right: 10px;
-            width: 16px;
+            width: 22px;
             cursor: pointer;
             visibility:${(props) => props.clearIconVisible ? 'visible': 'hidden'}
         }
@@ -91,6 +92,7 @@ export const StyledCategoryContainer = styled.li`
         h1 {
             grid-column: 1 /-1;
             text-align: start;
+            font-family:'Noto Sans JP',sans-serif;
         }
 
         ul {
