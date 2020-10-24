@@ -39,6 +39,9 @@ class TileContainer extends React.Component {
         for (let filt of uniqueFilters) {
             filtered_arrays.push(data.filter((val) => val.hasOwnProperty('kind') ? val.kind === filt : val.wrapperType === filt));
         }
+        //Sort the filtered array according to the length of each inner array:
+        filtered_arrays.sort((a,b)=> b.length - a.length);
+        
         let result_arrays = filtered_arrays.map((val, ind) => (
             <StyledCategoryContainer key={ind}>
                 <h1>{val[0].kind ? val[0].kind : val[0].wrapperType}: {val.length}</h1>
