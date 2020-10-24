@@ -41,10 +41,10 @@ class TileContainer extends React.Component {
         }
         //Sort the filtered array according to the length of each inner array:
         filtered_arrays.sort((a,b)=> b.length - a.length);
-        
+
         let result_arrays = filtered_arrays.map((val, ind) => (
             <StyledCategoryContainer key={ind}>
-                <h1>{val[0].kind ? val[0].kind : val[0].wrapperType}: {val.length}</h1>
+                <h1>{val[0].kind ? val[0].kind : val[0].wrapperType}</h1>
                 <ul>
                     {val.map((item, index) => (
                         <Tile key={index} data={item} animationDelay={`${index}`} />

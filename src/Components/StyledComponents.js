@@ -55,7 +55,7 @@ export const StyledCategoryContainer = styled.li`
     & {
         h1 {
             grid-column: 1 /-1;
-            text-align: center;
+            text-align: start;
         }
 
         ul {
@@ -102,12 +102,14 @@ export const StyledCard = styled.li`
         align-items:flex-start;
         width:250px;
         margin-top: 10px;
+        overflow:hidden;
     }
     & div span:nth-child(1){
         font-size:15px;
         font-weight:bold;
-        overflow:hidden;
-        text-overflow:ellipsis;
+        // overflow:hidden;
+        // text-overflow:ellipsis;
+        white-space:nowrap;
     }
     & div span:nth-child(2){
         font-size:12px;
