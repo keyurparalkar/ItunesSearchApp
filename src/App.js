@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import './App.css';
 import SearchBox from "./Components/SearchBox.js";
 import TileContainer from "./Components/TileContainer.js";
-import Filters from "./Components/Filters.js";
+// import Filters from "./Components/Filters.js";
 import store from "./Store/Store.js";
 import { AppContainer } from "./Components/StyledComponents.js";
 
@@ -13,7 +13,7 @@ function App() {
     <Provider store={store}>
       <AppContainer>
         <SearchBox />
-        <Filters/>
+        {/* <Filters/> */}
         <TileContainer />
       </AppContainer>
     </Provider>

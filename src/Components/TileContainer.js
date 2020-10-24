@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { recieveData } from "../Store/ActionCreators.js";
 import Tile from "./Tile.js"
-import { ListStyledContainer, StyledLoader } from "./StyledComponents.js";
+import { ListStyledContainer, StyledLoader, StyledCategoryContainer } from "./StyledComponents.js";
 
 const mapStateToProps = (state) => {
     return {
@@ -31,30 +31,35 @@ class TileContainer extends React.Component {
     }
 
     render() {
-        let result_list;
-        let filteredList = this.props.results.filter((val) => {
-            if (val.wrapperType === "audiobook" && this.props.filter.includes("audiobook")) {
-                return true;
-            } else if (this.props.filter.includes(val.kind)) {
-                return true;
-            } else {
-                return false;
-            }
-        });
-        result_list = filteredList.map((val, index) =><Tile key={index} data={val} animationDelay={`${index}`}/>);
 
+        let filtered_arrays = [];
+        let data = this.props.results;
+        let uniqueFilters = [...new Set(data.map((val) => val.hasOwnProperty('kind') ? val.kind : val.wrapperType))];
 
-        if (filteredList.length === 0) {
-            result_list = this.props.results.map((val, index) => <Tile key={index} data={val} animationDelay={`${index}`}/>);
+        for (let filt of uniqueFilters) {
+            filtered_arrays.push(data.filter((val) => val.hasOwnProperty('kind') ? val.kind === filt : val.wrapperType === filt));
         }
+        //Sort the filtered array according to the length of each inner array:
+        filtered_arrays.sort((a,b)=> b.length - a.length);
 
+        let result_arrays = filtered_arrays.map((val, ind) => (
+            <StyledCategoryContainer key={ind}>
+                <h1>{val[0].kind ? val[0].kind : val[0].wrapperType}</h1>
+                <ul>
+                    {val.map((item, index) => (
+                        <Tile key={index} data={item} animationDelay={`${index}`} />
+                    ))}
+                </ul>
+            </StyledCategoryContainer>
+
+        ));
 
         if (this.props.isFetching) {
-            return <StyledLoader/>
+            return <StyledLoader />
         } else {
             return (
                 <ListStyledContainer>
-                    {result_list}
+                    {result_arrays}
                 </ListStyledContainer>
 
             );

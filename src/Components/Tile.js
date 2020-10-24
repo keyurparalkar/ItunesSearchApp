@@ -57,16 +57,13 @@ class Tile extends React.Component {
             <StyledCard animationDelay={this.props.animationDelay}>
                 <span>
                     <button href="#" onClick={this.showModal}>
-                    <StyledImage alt={trackName} src={highRezImgUrl} width={150} height={150} />
+                    <StyledImage alt={trackName} src={highRezImgUrl} width={250} height={250} />
                     </button>
                 </span>
 
-                <span>{trackName}</span>
                 <div>
+                    <span>{trackName}</span>
                     <span>{artistName}</span>
-
-                    <span> ({songType})</span>
-                    {/* <button onClick={this.showModal}>Show modal</button> */}
                 </div>
 
                 <Modal closeModal={this.hideModal}

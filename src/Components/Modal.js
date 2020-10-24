@@ -7,7 +7,6 @@ export const Modal = (props) => {
     const [overflow, setOverflow] = useState('hidden')
 
     const showHideClass = props.show ? "modal display-block" : "modal display-none";
-    console.log(overflow);
     return (
         <StyledModal className={showHideClass}>
             <div className="main-model">
