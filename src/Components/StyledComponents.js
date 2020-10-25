@@ -108,15 +108,16 @@ export const StyledCard = styled.li`
     align-items: center;
     
     padding: 2px;
-
-    // border: 1px solid rgba(0,0,0,0.5);
-    border-radius: 20px;
     margin: 10px;
 
     width:300px;
     height:350px;
 
     font-family: 'Noto Sans JP', sans-serif;
+
+    box-shadow:0px 0px 0px 0px rgba(0,0,0,0);
+    transition: box-shadow 0.5s;
+
 
     & span:nth-child(1) button{
         background:transparent;
@@ -152,6 +153,10 @@ export const StyledCard = styled.li`
     }
 
     animation: ${fadeIn} ${props => props.animationDelay / 5}s ease-out;
+
+    &:hover{
+        box-shadow:0px 25px 50px 4px rgba(0,0,0,0.2);
+    }
 `;
 
 export const StyledImage = styled.img`
