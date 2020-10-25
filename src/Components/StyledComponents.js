@@ -33,9 +33,40 @@ export const AppContainer = styled.div`
 
 export const StyledSearchBox = styled.div`
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items:center;
+    // align-items:center;
+    position: relative;
+    min-width:500px;
+    box-shadow: 0px 7px 17px 5px rgba(0,0,0,0.06);
+    & {
+        .search-icon{
+            position: absolute;
+            top: 18px;
+            left: 14px;
+            width: 28px;
+        }
+
+        input {
+            border: 0px solid transparent;
+            border-radius: 5px;
+            height: 60px;
+            width: 100%;
+            padding: 2px 23px 2px 60px;
+            outline: 0;
+            background-color: white;
+            font-size:25px;
+        }
+
+        .clear-icon{
+            position: absolute;
+            top: 24px;   
+            right: 10px;
+            width: 22px;
+            cursor: pointer;
+            visibility:${(props) => props.clearIconVisible ? 'visible': 'hidden'}
+        }
+    }
 `;
 
 export const ListStyledContainer = styled.ul`
@@ -56,6 +87,7 @@ export const StyledCategoryContainer = styled.li`
         h1 {
             grid-column: 1 /-1;
             text-align: start;
+            font-family:'Noto Sans JP',sans-serif;
         }
 
         ul {
