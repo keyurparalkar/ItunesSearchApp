@@ -38,7 +38,7 @@ export const StyledSearchBox = styled.div`
     // align-items:center;
     position: relative;
     min-width:500px;
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.06);
+    box-shadow: 0px 7px 17px 5px rgba(0,0,0,0.06);
     & {
         .search-icon{
             position: absolute;
@@ -48,7 +48,7 @@ export const StyledSearchBox = styled.div`
         }
 
         input {
-            // border: 1px solid grey;
+            border: 0px solid transparent;
             border-radius: 5px;
             height: 60px;
             width: 100%;
@@ -56,11 +56,6 @@ export const StyledSearchBox = styled.div`
             outline: 0;
             background-color: white;
             font-size:25px;
-
-            &:hover, &:focus {
-                // border: 1.5px solid #009688;
-                // background-color: white;
-              }
         }
 
         .clear-icon{
