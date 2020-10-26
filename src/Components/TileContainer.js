@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { recieveData } from "../Store/ActionCreators.js";
 import Tile from "./Tile.js"
 import { ListStyledContainer, StyledLoader, StyledCategoryContainer } from "./StyledComponents.js";
+import {WelcomeLoader} from "./Loader.js";
 
 const mapStateToProps = (state) => {
     return {
@@ -59,6 +60,7 @@ class TileContainer extends React.Component {
         } else {
             return (
                 <ListStyledContainer>
+                    <WelcomeLoader/>
                     {result_arrays}
                 </ListStyledContainer>
 

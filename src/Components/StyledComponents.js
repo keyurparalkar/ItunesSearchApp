@@ -226,3 +226,61 @@ export const StyledDescription = styled.div`
     width: 500px;
     max-height: 250px;
 `;
+
+const BounceAnimation = keyframes`
+  0% { margin-bottom: 0; }
+  50% { margin-bottom: 15px }
+  100% { margin-bottom: 0 }
+`;
+
+export const Bar = styled.div`
+    // background-color: black;
+    // border-radius: 50%;
+    // width: 10px;
+    // height: 10px;
+    // margin: 0 5px;
+
+    /* Animation */
+    animation: ${BounceAnimation} 0.5s linear infinite;
+    animation-delay: ${props => props.delay};
+`;
+
+const swishAnimation = (imgUrl)=>keyframes`
+    0%{
+        opacity:1;
+    }
+
+    33%{
+        opacity:1;
+    }
+
+    83%{
+        opacity:0;
+    }
+
+    100%{
+        opacity:0;  
+    }
+`;
+export const StyledWelcomeLoader = styled.div`
+    & img{
+        position:absolute;
+        animation-name: ${swishAnimation};
+        animation-duration: 2s;
+        opacity:0;
+
+        &.book{
+            animation-delay:2s;    
+        }
+
+        &.music{
+            animation-delay:4s;
+        }
+
+
+        &.movie{
+            animation-delay:6s;
+        }
+    };
+    
+`;
