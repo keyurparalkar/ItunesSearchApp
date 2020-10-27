@@ -250,12 +250,16 @@ const swishAnimation = (imgUrl)=>keyframes`
         opacity:1;
     }
 
+    /* 17% {
+        opacity:0.8;
+    }
+
     33%{
-        opacity:1;
+        opacity:0.6;
     }
 
     83%{
-        opacity:0;
+        opacity:0.1; */
     }
 
     100%{
@@ -266,20 +270,24 @@ export const StyledWelcomeLoader = styled.div`
     & img{
         position:absolute;
         animation-name: ${swishAnimation};
-        animation-duration: 2s;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
         opacity:0;
 
         &.book{
-            animation-delay:2s;    
+            
+            animation-delay:0s;    
         }
 
         &.music{
-            animation-delay:4s;
+            /* display:none; */
+            animation-delay:2.5s;
         }
 
 
         &.movie{
-            animation-delay:6s;
+            /* display:none; */
+            animation-delay:4s;
         }
     };
     

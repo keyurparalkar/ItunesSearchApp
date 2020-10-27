@@ -12,9 +12,9 @@ export const WelcomeLoader = (props) => {
                 
             </span>
             <StyledWelcomeLoader imgUrls={[bookLogo, musicLogo, movieLogo]} className="welcome-loader-animation">
-                <img className="book" alt="book" src={bookLogo} height={30} width={30}/>
-                <img className="music" alt="book" src={musicLogo} height={30} width={30}/>
-                <img className="movie" alt="book" src={movieLogo} height={30} width={30}/>
+                <img className="book" alt="book" src={bookLogo} height={60} width={60}/>
+                <img className="music" alt="book" src={musicLogo} height={60} width={60}/>
+                <img className="movie" alt="book" src={movieLogo} height={60} width={60}/>
             </StyledWelcomeLoader>
         </div>
     );
