@@ -56,11 +56,10 @@ class TileContainer extends React.Component {
         ));
 
         if (this.props.isFetching) {
-            return <StyledLoader />
+            return <WelcomeLoader/>
         } else {
             return (
-                <ListStyledContainer>
-                    <WelcomeLoader/>
+                <ListStyledContainer>                    
                     {result_arrays}
                 </ListStyledContainer>
 

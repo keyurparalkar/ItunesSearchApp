@@ -152,7 +152,7 @@ export const StyledCard = styled.li`
         text-overflow:ellipsis;
     }
 
-    animation: ${fadeIn} ${props => props.animationDelay / 5}s ease-out;
+    /* animation: ${fadeIn} ${props => props.animationDelay / 5}s ease-out; */
 
     &:hover{
         box-shadow:0px 25px 50px 4px rgba(0,0,0,0.2);
@@ -248,6 +248,7 @@ export const Bar = styled.div`
 const swishAnimation = (imgUrl)=>keyframes`
     0%{
         opacity:1;
+        left:-25px;
     }
 
     /* 17% {
@@ -264,16 +265,22 @@ const swishAnimation = (imgUrl)=>keyframes`
 
     100%{
         opacity:0;  
+        left:0px;
     }
 `;
 export const StyledWelcomeLoader = styled.div`
+    align-self:center;
     & img{
-        position:absolute;
+        position:relative;
         animation-name: ${swishAnimation};
-        animation-duration: 6s;
+        animation-duration: 3s;
         animation-iteration-count: infinite;
         opacity:0;
-
+        left:-50px;
+        margin-left:10px;
+        animation-timing-function: cubic-bezier(0,0,1,3);
+        /* transition-timing-function: cubic-bezier(0,0,0,3); */
+        
         &.book{
             
             animation-delay:0s;    
@@ -281,14 +288,22 @@ export const StyledWelcomeLoader = styled.div`
 
         &.music{
             /* display:none; */
-            animation-delay:2.5s;
+            animation-delay:1s;
         }
 
 
         &.movie{
             /* display:none; */
-            animation-delay:4s;
+            animation-delay:2s;
         }
     };
     
+`;
+
+export const LoaderDiv = styled.div`
+    display:flex;
+    flex-direction:column-reverse;
+    justify-content:center;
+    height:800px;
+    font-size:30px;
 `;
