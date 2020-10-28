@@ -26,6 +26,8 @@ class TileContainer extends React.Component {
                 axios.get(`https://itunes.apple.com/search?term=${encodeURI(this.props.searchTerm)}`)
                     .then((resp) => {
                         dispatch(recieveData(resp.data.results));
+                    }).catch((err)=>{
+                        console.log(err);
                     })
             });
         }

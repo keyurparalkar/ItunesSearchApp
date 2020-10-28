@@ -278,7 +278,7 @@ export const StyledWelcomeLoader = styled.div`
         opacity:0;
         left:-50px;
         margin-left:10px;
-        animation-timing-function: cubic-bezier(0,0,1,3);
+        animation-timing-function: cubic-bezier(0,1,2,3);
         /* transition-timing-function: cubic-bezier(0,0,0,3); */
         
         &.book{
