@@ -108,15 +108,16 @@ export const StyledCard = styled.li`
     align-items: center;
     
     padding: 2px;
-
-    // border: 1px solid rgba(0,0,0,0.5);
-    border-radius: 20px;
     margin: 10px;
 
     width:300px;
     height:350px;
 
     font-family: 'Noto Sans JP', sans-serif;
+
+    box-shadow:0px 0px 0px 0px rgba(0,0,0,0);
+    transition: box-shadow 0.5s;
+
 
     & span:nth-child(1) button{
         background:transparent;
@@ -151,7 +152,11 @@ export const StyledCard = styled.li`
         text-overflow:ellipsis;
     }
 
-    animation: ${fadeIn} ${props => props.animationDelay / 5}s ease-out;
+    /* animation: ${fadeIn} ${props => props.animationDelay / 5}s ease-out; */
+
+    &:hover{
+        box-shadow:0px 25px 50px 4px rgba(0,0,0,0.2);
+    }
 `;
 
 export const StyledImage = styled.img`
@@ -220,4 +225,85 @@ export const StyledDescription = styled.div`
     text-overflow: ellipsis;
     width: 500px;
     max-height: 250px;
+`;
+
+const BounceAnimation = keyframes`
+  0% { margin-bottom: 0; }
+  50% { margin-bottom: 15px }
+  100% { margin-bottom: 0 }
+`;
+
+export const Bar = styled.div`
+    // background-color: black;
+    // border-radius: 50%;
+    // width: 10px;
+    // height: 10px;
+    // margin: 0 5px;
+
+    /* Animation */
+    animation: ${BounceAnimation} 0.5s linear infinite;
+    animation-delay: ${props => props.delay};
+`;
+
+const swishAnimation = (imgUrl)=>keyframes`
+    0%{
+        opacity:1;
+        left:-25px;
+    }
+
+    /* 17% {
+        opacity:0.8;
+    }
+
+    33%{
+        opacity:0.6;
+    }
+
+    83%{
+        opacity:0.1; */
+    }
+
+    100%{
+        opacity:0;  
+        left:0px;
+    }
+`;
+export const StyledWelcomeLoader = styled.div`
+    align-self:center;
+    & img{
+        position:relative;
+        animation-name: ${swishAnimation};
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        opacity:0;
+        left:-50px;
+        margin-left:10px;
+        animation-timing-function: cubic-bezier(0,1,2,3);
+        /* transition-timing-function: cubic-bezier(0,0,0,3); */
+        
+        &.book{
+            
+            animation-delay:0s;    
+        }
+
+        &.music{
+            /* display:none; */
+            animation-delay:1s;
+        }
+
+
+        &.movie{
+            /* display:none; */
+            animation-delay:2s;
+        }
+    };
+    
+`;
+
+export const LoaderDiv = styled.div`
+    display:flex;
+    flex-direction:column-reverse;
+    justify-content:center;
+    height:800px;
+    font-size:30px;
 `;

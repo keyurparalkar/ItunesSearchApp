@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { recieveData } from "../Store/ActionCreators.js";
 import Tile from "./Tile.js"
 import { ListStyledContainer, StyledLoader, StyledCategoryContainer } from "./StyledComponents.js";
+import {WelcomeLoader} from "./Loader.js";
 
 const mapStateToProps = (state) => {
     return {
@@ -25,6 +26,8 @@ class TileContainer extends React.Component {
                 axios.get(`https://itunes.apple.com/search?term=${encodeURI(this.props.searchTerm)}`)
                     .then((resp) => {
                         dispatch(recieveData(resp.data.results));
+                    }).catch((err)=>{
+                        console.log(err);
                     })
             });
         }
@@ -55,10 +58,10 @@ class TileContainer extends React.Component {
         ));
 
         if (this.props.isFetching) {
-            return <StyledLoader />
+            return <WelcomeLoader/>
         } else {
             return (
-                <ListStyledContainer>
+                <ListStyledContainer>                    
                     {result_arrays}
                 </ListStyledContainer>
 

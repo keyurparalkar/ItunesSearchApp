@@ -35,6 +35,7 @@ class SearchBox extends React.Component{
     clearSearchBar(event){
         this.props.dispatch((dispatch)=>{
             dispatch(clearText());
+            dispatch(startFetching());
         })
     }
     
