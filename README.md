@@ -1,68 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+  <br>
+  <img src="./media/logo_.png" alt="ItunesSearchApp" width="300">
+</h1>
 
-## Available Scripts
+<h4 align="center">A single page app based on <a href="https://reactjs.org/" target="_blank">React</a>.</h4>
 
-In the project directory, you can run:
 
-### `npm start`
+ItunesSearchApp is a React, and Redux based single page application which leverages itunes search api to get your favourite audiobooks, songs, and featured-movies in one place. It is simple and easy to use.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Demo
+![Alt Text](./media/test0.gif)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Motivation
+ItunesSearchApp is a single page application to help navigate through the searched term using iTunes APIs. This application is a UI replication/enhancement to the current iTunes Search. Multiple websites has motivated me to build this project e.g. Spotify, iTunes Music and Amazon Music.
+ 
 
-### `npm test`
+## Tech/framework used
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<b>Built with</b>
+- [React](https://reactjs.org/)
+- [Redux](https://react-redux.js.org/)
+- [redux-thunk](https://github.com/reduxjs/redux-thunk), [redux-logger](https://github.com/LogRocket/redux-logger)
+- [styled-components](https://styled-components.com/)
+- [Itunes Search APIs](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html)
 
-### `npm run build`
+## Features
+- Dynamic categorization of searched term via implicit redux logic.
+- Full dynamic horizontal scrolling of content for each category.
+- Butter smooth UI.
+- Custom-made animated loader for the app.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to use?
+Steps to run the application:
+```
+npm install
+npm start
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## You can reach out 😊😊
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Feel free to contact me about the problems. I will try to help as much as I can 😉
 
-### `npm run eject`
+[![Linkedin Badge](https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/keyur-paralkar-494415107/)
+[![Mail Badge](https://img.shields.io/badge/email-c14438?style=for-the-badge&logo=Gmail&logoColor=white&link=mailto:furkanozbek1995@gmail.com)](mailto:keur.plkar@gmail.com)
+[![Twitter Badge](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/keurplkar)
+[![Github Badge](https://img.shields.io/badge/github-333?style=for-the-badge&logo=github&logoColor=white)](https://github.com/keyurparalkar/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Acknowledgments
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Getting Better at React
+- Learning new stuffs
