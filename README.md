@@ -1,6 +1,6 @@
 <h1 align="center">
   
-  <h1 style="text-align:center">Itunes Search App</h1>
+  <h1 align="center">Itunes Search App</h1>
 </h1>
 
 <h4 align="center">A single page app based on <a href="https://reactjs.org/" target="_blank">React</a>.</h4>
