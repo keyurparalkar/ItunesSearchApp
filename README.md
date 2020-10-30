@@ -1,6 +1,6 @@
 <h1 align="center">
-  <br>
-  <img src="./media/logo_.png" alt="ItunesSearchApp" width="300">
+  
+  <h1 style="text-align:center">Itunes Search App</h1>
 </h1>
 
 <h4 align="center">A single page app based on <a href="https://reactjs.org/" target="_blank">React</a>.</h4>
@@ -9,7 +9,7 @@
 ItunesSearchApp is a React, and Redux based single page application which leverages itunes search api to get your favourite audiobooks, songs, and featured-movies in one place. It is simple and easy to use.
 
 ## Demo
-![Alt Text](./media/test0.gif)
+![Alt Text](./media/demo.gif)
 
 ## Motivation
 ItunesSearchApp is a single page application to help navigate through the searched term using iTunes APIs. This application is a UI replication/enhancement to the current iTunes Search. Multiple websites has motivated me to build this project e.g. Spotify, iTunes Music and Amazon Music.
